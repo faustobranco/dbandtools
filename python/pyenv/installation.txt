@@ -1,0 +1,53 @@
+
+sudo dnf groupinstall -y "Development Tools"
+sudo dnf install -y git zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel xz xz-devel libffi-devel findutils
+
+
+git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'export LC_ALL=en_US.utf-8' >> ~/.bash_profile
+echo 'export LANG=en_US.utf-8' >> ~/.bash_profile
+echo 'eval "$(pyenv init --path)"' >> ~/.bash_profile
+
+source ~/.bash_profile
+
+eval "$(pyenv init --path)"
+
+
+
+$ pyenv -v
+pyenv 2.0.1-1-gfadb3f33
+
+$ python -V
+Python 3.9.2
+
+$ pyenv versions
+* system (set by /home/vagrant/.pyenv/version)
+
+pyenv install -v 2.7.15
+pyenv install -v 3.6.8
+
+pyenv global 3.6.8
+pyenv versions
+python -V
+
+pyenv global 2.7.15
+pyenv versions
+python -V
+
+pyenv global system
+pyenv versions
+python -V
+
+
+
+
+## for Zsh
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+
+echo 'export LC_ALL=en_US.utf-8' >> ~/.zshrc
+echo 'export LANG=en_US.utf-8' >> ~/.zshrc
+

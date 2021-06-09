@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  config.vbguest.auto_update = false
+  config.vm.define "srv-fedora-01" do |srvfedora|
+      srvfedora.vm.box = "fedora/34-cloud-base"
+      srvfedora.vm.hostname = 'srv-fedora-01'
+      srvfedora.vm.synced_folder "work/", "/work"
+
+      srvfedora.vm.network :private_network, ip: "10.0.6.51", auto_config: false
+
+      srvfedora.vm.provider :virtualbox do |v|
+        v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        v.customize ["modifyvm", :id, "--memory", 1024]
+        v.customize ["modifyvm", :id, "--cpus", 1]
+        v.customize ["modifyvm", :id, "--name", "srv-fedora-01"]
+        v.auto_nat_dns_proxy = false
+      end
+  end
+end
