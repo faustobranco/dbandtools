@@ -1,4 +1,21 @@
 
+CentOS:
+yum install -y git gcc gcc-c++ make git patch openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel
+git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
+
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'export LC_ALL=en_US.utf-8' >> ~/.bashrc
+echo 'export LANG=en_US.utf-8' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+
+source ~/.bashrc
+
+
+
+
+Fedora:
 sudo dnf groupinstall -y "Development Tools"
 sudo dnf install -y git zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel xz xz-devel libffi-devel findutils
 
@@ -16,6 +33,7 @@ source ~/.bash_profile
 eval "$(pyenv init --path)"
 
 
+# Any OS:
 
 $ pyenv -v
 pyenv 2.0.1-1-gfadb3f33
