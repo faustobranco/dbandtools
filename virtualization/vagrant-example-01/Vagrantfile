@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "srv-example-01" do |vmexample1|
+    vmexample1.vm.box = "centos/7"
+    vmexample1.vm.hostname = 'srv-example-01'
+    config.vbguest.installer_options = { allow_kernel_upgrade: true }
+  end
+end
