@@ -1,0 +1,44 @@
+On CentOS:
+
+pyenv global 3.9.2
+python -V
+
+sudo yum install -y epel-release
+sudo yum install -y ansible
+
+
+Check:
+
+ansible --version
+ansible-playbook --version
+ansible-playbook 2.9.21
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/vagrant/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.5 (default, Apr  2 2020, 13:16:51) [GCC 4.8.5 20150623 (Red Hat 4.8.5-39)]
+
+
+
+On Fedora:
+
+$ sudo dnf install ansible
+
+On RHEL:
+
+$ sudo yum install -y ansible
+
+Installing Ansible on Ubuntu
+
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+
+Installing via Pip (I used this on my Macbook):
+
+python -m pip install ansible
+python -m pip install --user paramiko
+
+
